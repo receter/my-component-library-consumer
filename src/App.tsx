@@ -1,21 +1,12 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+// If this is imported, the "I should not be bold" text will not be bold anymore.
+// import { Input } from '@receter/my-component-library';
+import { ComponenThatUsesHelperStyles } from './ComponenThatUsesHelperStyles';
+import { ComponentThatUsesLabel } from './ComponentThatUsesLabel';
 import './App.css'
-import { Button, Label, Input } from '@receter/my-component-library';
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [inputCustomCountValue, setInputCustomCountValue] = useState('');
-
-  const handleClickCustomCount = () => {
-    if (inputCustomCountValue === '') {
-      setCount(count => count + 1);
-    } else {
-      setCount(Number(inputCustomCountValue));
-    }
-  }
-
   return (
     <>
       <div>
@@ -28,15 +19,12 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Label>My Label</Label><br />
-        <Input
+        <ComponenThatUsesHelperStyles />
+        <ComponentThatUsesLabel />
+{/*          <Input
           placeholder="Custom count"
-          value={inputCustomCountValue}
-          onChange={(e) => setInputCustomCountValue(e.target.value)}
-        /><br />
-        <Button onClick={handleClickCustomCount}>
-          count is {count}
-        </Button>
+          value={'Can\'t change me!'}
+        /> */}
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
